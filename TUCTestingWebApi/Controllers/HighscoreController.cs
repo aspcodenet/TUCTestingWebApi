@@ -42,7 +42,6 @@ namespace TUCTestingWebApi.Controllers
             {
                 _highscoreEntryRepository.RegisterNew(new HighscoreEntry
                 {
-                    Country = viewModel.Country,
                     Game = viewModel.Game,
                     Points = viewModel.Points,
                     Namn = viewModel.Namn
