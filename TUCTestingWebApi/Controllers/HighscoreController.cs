@@ -5,6 +5,7 @@ using TUCTestingWebApi.ViewModels;
 
 namespace TUCTestingWebApi.Controllers
 {
+    //   /highscore
     public class HighscoreController : Controller
     {
         private readonly IHighscoreEntryRepository _highscoreEntryRepository;
@@ -14,6 +15,7 @@ namespace TUCTestingWebApi.Controllers
             _highscoreEntryRepository = highscoreEntryRepository;
         }
 
+        // /Highscore    
         public IActionResult Index()
         {
             var viewModel = new HighscoreListaViewModel();
@@ -28,6 +30,8 @@ namespace TUCTestingWebApi.Controllers
             return View(viewModel);
         }
 
+
+        // /Highscore/New
 
         public IActionResult New()
         {
