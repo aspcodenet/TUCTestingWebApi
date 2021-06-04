@@ -30,6 +30,40 @@ namespace TUCTestingWebApi.Controllers
             return View(viewModel);
         }
 
+        // Highscore/Edit/0    Highscore/Edit/1 
+        public IActionResult Edit(int id)
+        {
+            var viewModel = new HighscoreEditViewModel();
+
+            var entryFromDatabase = _highscoreEntryRepository.Get(id);
+            viewModel.Country = entryFromDatabase.Country;
+            viewModel.Game = entryFromDatabase.Game;
+            viewModel.Id = entryFromDatabase.Id;
+            viewModel.Namn = entryFromDatabase.Namn;
+            viewModel.Points = entryFromDatabase.Points;
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(HighscoreEditViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var entryFromDatabase = _highscoreEntryRepository.Get(viewModel.Id);
+                entryFromDatabase.Country = viewModel.Country;
+                entryFromDatabase.Game = viewModel.Game;
+                entryFromDatabase.Id = viewModel.Id;
+                entryFromDatabase.Namn = viewModel.Namn;
+                entryFromDatabase.Points = viewModel.Points;
+                return RedirectToAction("Index");
+            }
+
+            return View(viewModel);
+        }
+
+
+
 
         // /Highscore/New
 
@@ -38,6 +72,9 @@ namespace TUCTestingWebApi.Controllers
             var viewModel = new HighscoreNewViewModel();
             return View(viewModel);
         }
+
+
+
 
         [HttpPost]
         public IActionResult New(HighscoreNewViewModel viewModel)
