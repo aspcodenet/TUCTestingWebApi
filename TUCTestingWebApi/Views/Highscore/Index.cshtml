@@ -19,8 +19,8 @@
                         <thead>
                         <tr>
                             <th scope="col">Namn</th>
-                            <th scope="col">Game</th>
-                            <th scope="col">Points</th>
+                            <th scope="col">Spel</th>
+                            <th scope="col">Poäng</th>
                             <th scope="col"></th>
                         </tr>
                         </thead>
@@ -31,7 +31,7 @@
                                 <td>@entry.Namn</td>
                                 <td>@entry.Game</td>
                                 <td>@entry.Points</td>
-                                <td><a asp-controller="Highscore" asp-action="Edit" asp-route-Id="@entry.Id" class="btn btn-secondary active" role="button" aria-pressed="true">Edit</a></td>
+                                <td><a asp-controller="Highscore" asp-action="Edit" asp-route-Id="@entry.Id" class="btn btn-secondary active" role="button" aria-pressed="true">Ändra</a></td>
                             </tr>
                         }
 
@@ -44,7 +44,7 @@
         </div>
 
         <a asp-controller="Highscore" asp-action="New" class="btn btn-secondary" role="button" aria-pressed="true">
-            Create new
+            Skapa ny
         </a>
         
 
